@@ -1,0 +1,11 @@
+---
+- hosts: your_ansible_instance_ip
+  become: yes
+  tasks:
+    - name: Copy Docker Compose file
+      copy:
+        src: docker-compose.yml
+        dest: /home/ubuntu/devops-example/docker-compose.yml
+
+    - name: Deploy Docker Compose
+      command: docker-compose -f /home/ubuntu/devops-example/docker-compose.yml up -d
